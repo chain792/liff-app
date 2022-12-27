@@ -2,8 +2,7 @@ FROM ruby:2.7.4
 
 WORKDIR /liff-app
 
-# node.jsと必要なライブラリのインストトール
-RUN apt-get update -qq && apt-get install -y nodejs npm \
+RUN apt-get update -qq && apt-get install -y vim nodejs npm \
   && npm install -g yarn
 
 COPY Gemfile* /liff-app/
