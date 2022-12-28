@@ -2,7 +2,8 @@ FROM ruby:2.7.4
 
 WORKDIR /liff-app
 
-RUN apt-get update -qq && apt-get install -y vim nodejs npm \
+RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash - \
+  && apt-get update -qq && apt-get install -y vim nodejs \
   && npm install -g yarn
 
 COPY Gemfile* /liff-app/
@@ -13,4 +14,4 @@ COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
 ENTRYPOINT ["entrypoint.sh"]
 
-CMD ["rails", "server", "-b", "0.0.0.0"]
+CMD ["bundle", "exec", "foreman", "start"]
