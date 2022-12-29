@@ -5,9 +5,13 @@ document.addEventListener('DOMContentLoaded', () => {
     liffId: process.env.LIFF_ID
   })
   .then(() => {
-    alert('ok')
+    // if (!liff.isLoggedIn()) {
+    //   console.log('not login')
+    //   liff.login();
+    // }
+    console.log(liff.getIDToken())
   })
   .catch((err) => {
-    alert('ng')
+    console.log('error')
   })
 })

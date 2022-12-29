@@ -1,4 +1,5 @@
 class LineBotController < ApplicationController
+  skip_before_action :require_login
   protect_from_forgery except: [:callback]
 
   def callback

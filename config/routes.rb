@@ -8,5 +8,10 @@ Rails.application.routes.draw do
 
   namespace :liff do
     root 'top#index'
+    resources :tests
+  end
+
+  namespace :api do
+    get 'test' => 'test#index'
   end
 end
