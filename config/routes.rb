@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   root 'top#index'
-  resources :users, only: %i[new create]
+  post 'push' => 'sms#create'
+  get 'login' => 'sessions#new'
+  post 'login' => 'sessions#create'
+  delete 'logout' => 'sessions#destroy'
   post 'callback' => 'line_bot#callback'
 
   namespace :liff do

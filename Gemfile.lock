@@ -56,6 +56,18 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
       zeitwerk (~> 2.2, >= 2.2.2)
+    aws-eventstream (1.2.0)
+    aws-partitions (1.684.0)
+    aws-sdk-core (3.168.4)
+      aws-eventstream (~> 1, >= 1.0.2)
+      aws-partitions (~> 1, >= 1.651.0)
+      aws-sigv4 (~> 1.5)
+      jmespath (~> 1, >= 1.6.1)
+    aws-sdk-sns (1.57.0)
+      aws-sdk-core (~> 3, >= 3.165.0)
+      aws-sigv4 (~> 1.1)
+    aws-sigv4 (1.5.2)
+      aws-eventstream (~> 1, >= 1.0.2)
     bcrypt (3.1.18)
     better_errors (2.9.1)
       coderay (>= 1.0.0)
@@ -93,6 +105,7 @@ GEM
     hashie (5.0.0)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
+    jmespath (1.6.2)
     jwt (2.6.0)
     line-bot-api (1.26.0)
     listen (3.1.5)
@@ -140,6 +153,10 @@ GEM
       rack (>= 1.2, < 4)
       snaky_hash (~> 2.0)
       version_gem (~> 1.1)
+    phony (2.20.1)
+    phony_rails (0.15.0)
+      activesupport (>= 3.0)
+      phony (>= 2.18.12)
     pry (0.14.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -249,6 +266,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aws-sdk-sns
   better_errors
   binding_of_caller
   bootsnap (>= 1.4.2)
@@ -260,6 +278,7 @@ DEPENDENCIES
   listen (>= 3.0.5, < 3.2)
   mysql2 (>= 0.4.4)
   net-http
+  phony_rails
   pry-byebug
   puma (~> 3.11)
   rails (~> 6.0.0)
