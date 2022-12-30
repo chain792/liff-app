@@ -2,9 +2,15 @@ class Liff::ButtonsController < Liff::Base
 
 
   def create
+    if current_user.button.blank?
+      current_user.build_button.save!
+    end
+    button = current_user.button
+    button.number = button.number + 1
+    button.save!
     message = {
       type: 'text',
-      text: 'hello'
+      text: "#{button.number}回押したよ！"
     }
     response = client.push_message(current_user.user_id, message)
   end

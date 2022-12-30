@@ -1,6 +1,5 @@
 class Liff::SessionsController < Liff::Base
 
-
   def create
     if !user_signed_in?
       res = client.verify_id_token(params[:idToken])
