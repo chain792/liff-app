@@ -1,5 +1,5 @@
 class Api::Base < ApplicationController
-  skip_before_action :require_login
+  skip_before_action :authenticate_applicant!
   before_action :xhr_request?
 
   private

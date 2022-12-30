@@ -1,14 +1,14 @@
 Rails.application.routes.draw do
   root 'top#index'
+  devise_for :applicants
   post 'push' => 'sms#create'
-  get 'login' => 'sessions#new'
-  post 'login' => 'sessions#create'
-  delete 'logout' => 'sessions#destroy'
   post 'callback' => 'line_bot#callback'
 
   namespace :liff do
     root 'top#index'
+    post 'users/sign_in' => 'sessions#create'
     resources :tests
+    resources :buttons, only: %i[create]
   end
 
   namespace :api do

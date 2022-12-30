@@ -1,5 +1,5 @@
 class LineBotController < ApplicationController
-  skip_before_action :require_login
+  skip_before_action :authenticate_applicant!
   protect_from_forgery except: [:callback]
 
   def callback
@@ -18,6 +18,7 @@ class LineBotController < ApplicationController
             type: 'text',
             text: event.message['text']
           }
+          
           client.reply_message(event['replyToken'], message)
         end
       end
@@ -29,8 +30,8 @@ class LineBotController < ApplicationController
 
   def client
     @client ||= Line::Bot::Client.new { |config|
-      config.channel_secret = Rails.application.credentials.dig(:line, :channel_secret)
-      config.channel_token = Rails.application.credentials.dig(:line, :channel_token)
+      config.channel_secret = Rails.application.credentials.dig(:line, :messaging, :channel_secret)
+      config.channel_token = Rails.application.credentials.dig(:line, :messaging, :channel_token)
     }
   end
 end

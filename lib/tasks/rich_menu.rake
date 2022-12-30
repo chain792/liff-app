@@ -4,8 +4,8 @@ namespace :rich_menu do
   desc 'リッチメニューを作成する'
   task :create_rich_menu do
     client = Line::Bot::Client.new { |config|
-      config.channel_secret = Rails.application.credentials.dig(:line, :channel_secret)
-      config.channel_token = Rails.application.credentials.dig(:line, :channel_token)
+      config.channel_secret = Rails.application.credentials.dig(:line, :messaging, :channel_secret)
+      config.channel_token = Rails.application.credentials.dig(:line, :messaging, :channel_token)
     }
 
     # リッチメニューを作成

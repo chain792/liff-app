@@ -1,0 +1,12 @@
+<header>
+  <nav>
+    <ul style="display: flex;">
+      <li><%= link_to 'トップページ', root_path %></li>
+      <% if applicant_signed_in? %>
+        <li><%= link_to "ログアウト", destroy_applicant_session_path, method: :delete%></li>
+      <% else %>
+        <li><%= link_to "ログイン", new_applicant_session_path %></li>
+      <% end %>
+    </ul>
+  </nav>
+</header>
