@@ -26,9 +26,12 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'net-http'
 gem 'rails-i18n', '~> 6.0'
-gem 'sorcery'
+gem 'devise'
+gem 'devise-i18n'
 gem 'ridgepole'
 gem 'line-bot-api'
+gem 'aws-sdk-sns'
+gem 'phony_rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
