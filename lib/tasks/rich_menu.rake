@@ -1,4 +1,4 @@
-require './lib/rich_menu/menu_1'
+require './lib/rich_menu/menu_2'
 
 namespace :rich_menu do
   desc 'リッチメニューを作成する'
@@ -9,7 +9,7 @@ namespace :rich_menu do
     }
 
     # リッチメニューを作成
-    rich_menu = menu_1
+    rich_menu = menu_2
     res = client.create_rich_menu(rich_menu)
     body = JSON.parse res.body
     p body
